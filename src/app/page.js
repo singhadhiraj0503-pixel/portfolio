@@ -4,7 +4,7 @@ import React from "react";
 const Home = () => {
   return (
     <div className="h-[300vh] w-full bg-black">
-      <div className="h-[50%] "></div>
+      {/* <div className="h-[50%] "></div> */}
       <TextReveal
         splitBy="chars"
         trigger="scroll"
