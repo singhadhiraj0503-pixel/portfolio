@@ -2,8 +2,8 @@ import React, { useRef } from "react";
 import TextReveal from "./TextReveal";
 import gsap from "@/lib/gsap";
 
-const CARD_W = 200;
-const CARD_H = 280;
+const CARD_W = 300;
+const CARD_H = 380;
 const SCALE = 1.35;
 
 const CarouselCard = ({ project, onHoverStart, onHoverEnd }) => {
@@ -48,9 +48,9 @@ const CarouselCard = ({ project, onHoverStart, onHoverEnd }) => {
       style={{
         height: CARD_H,
         width: CARD_W,
-        overflow: visible,
+        overflow: "visible",
         flexShrink: 0,
-        cursor: pointer,
+        cursor: "pointer",
       }}
       className="relative"
     >
