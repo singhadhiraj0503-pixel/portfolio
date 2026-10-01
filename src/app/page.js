@@ -5,7 +5,7 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div className="h-screen w-full flex items-center">
+    <div className="h-screen w-full flex items-start">
       <InfiniteCarousel projects={projects} />
     </div>
   );

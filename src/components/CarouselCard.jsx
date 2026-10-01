@@ -87,9 +87,10 @@
 import React, { useRef } from "react";
 import TextReveal from "./TextReveal";
 import gsap from "@/lib/gsap";
+import useViewTransition from "@/hooks/useViewTransition";
 
-const CARD_W = 300;
-const CARD_H = 380;
+const CARD_W = 200;
+const CARD_H = 280;
 const SCALE = 1.35;
 
 const CarouselCard = ({ project, onHoverStart, onHoverEnd }) => {
@@ -108,6 +109,12 @@ const CarouselCard = ({ project, onHoverStart, onHoverEnd }) => {
       ease: "power3.out",
     });
 
+    gsap.to(imgRef.current, {
+      scale: 1,
+      duration: 0.17,
+      ease: "power3.inOut",
+    });
+
     numberRef.current?.play();
     titleRef.current?.play();
   };
@@ -122,13 +129,26 @@ const CarouselCard = ({ project, onHoverStart, onHoverEnd }) => {
       ease: "power3.out",
     });
 
+    gsap.to(imgRef.current, {
+      scale: 1.6,
+      duration: 0.19,
+      ease: "power3.inOut",
+    });
+
     numberRef.current?.reverse();
     titleRef.current?.reverse();
+  };
+
+  const { navigateTo } = useViewTransition();
+
+  const handleClick = () => {
+    navigateTo(`/project/${project.slug}`);
   };
 
   return (
     <div
       ref={cardRef}
+      onClick={handleClick}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
       style={{
@@ -167,7 +187,7 @@ const CarouselCard = ({ project, onHoverStart, onHoverEnd }) => {
           src={project.coverImage}
           alt={project.title}
           draggable={false}
-          className="w-full h-full object-cover select-none"
+          className="w-full h-full object-cover scale-[1.6] select-none"
           style={{
             transformOrigin: "center center",
           }}
