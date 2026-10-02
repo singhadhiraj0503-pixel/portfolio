@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <div className="h-[6vh] w-full fixed flex items-center justify-between px-4">
       <div className="leftNameSide ">
-        <TextReveal splitBy="chars" duration="0.04">
+        <TextReveal splitBy="words" duration="0.5">
           <h3 className="text-xl font-bold">ADHIRAJ SINGH</h3>
         </TextReveal>
       </div>
