@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import TextReveal from "./TextReveal";
 import gsap, { ScrollTrigger, useGSAP } from "@/lib/gsap";
+import Link from "next/link";
 
 const ProjectPage = ({ project }) => {
   const containerRef = useRef(null);
@@ -70,24 +71,39 @@ const ProjectPage = ({ project }) => {
                 />
               </div>
             </div>
-            <div className="thirdSegment h-[85%] w-[50%] flex flex-col justify-end pl-4">
-              <div className="heading pb-5">
-                <TextReveal delay="0.85" splitBy="words">
-                  <h1 className="text-5xl font-semibold">{project.title}</h1>
+            <div className="thirdSegment h-[85%] w-[50%] flex flex-col justify-between pl-4">
+              <div className="top pt-4">
+                <TextReveal splitBy="chars">
+                  <Link href="/">
+                    <h1 className="text-lg italic">Live Link</h1>
+                  </Link>
+                </TextReveal>
+                <TextReveal splitBy="chars">
+                  <Link href="/">
+                    <h1 className="text-lg italic">GitHub Repo</h1>
+                  </Link>
                 </TextReveal>
               </div>
-              <div className="subHeading flex items-center gap-5 pb-5">
-                <TextReveal delay="0.85" splitBy="words">
-                  <h3 className="text-2xl">{project.subtitle}</h3>
-                </TextReveal>
-                <TextReveal delay="0.85" splitBy="chars">
-                  <h3 className="text-xl font-bold">({project.year})</h3>
-                </TextReveal>
-              </div>
-              <div className="description w-[68%]">
-                <TextReveal delay="0.12" splitBy="lines" duration="1.5">
-                  <p className="italic text-xl">{project.description}</p>
-                </TextReveal>
+
+              <div className="bottom">
+                <div className="heading pb-5">
+                  <TextReveal delay="0.85" splitBy="words">
+                    <h1 className="text-5xl font-semibold">{project.title}</h1>
+                  </TextReveal>
+                </div>
+                <div className="subHeading flex items-center gap-5 pb-5">
+                  <TextReveal delay="0.85" splitBy="words">
+                    <h3 className="text-2xl">{project.subtitle}</h3>
+                  </TextReveal>
+                  <TextReveal delay="0.85" splitBy="chars">
+                    <h3 className="text-xl font-bold">({project.year})</h3>
+                  </TextReveal>
+                </div>
+                <div className="description w-[68%]">
+                  <TextReveal delay="0.12" splitBy="lines" duration="1.5">
+                    <p className="italic text-xl">{project.description}</p>
+                  </TextReveal>
+                </div>
               </div>
             </div>
           </div>

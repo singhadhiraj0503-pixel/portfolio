@@ -70,6 +70,8 @@ export const projects = [
       "Tailwind CSS",
       "Generative AI",
     ],
+    liveLink: "https://dev-floww.vercel.app",
+    githubRepo: "https://github.com/singhadhiraj0503-pixel/DevFloww",
   },
 
   {
