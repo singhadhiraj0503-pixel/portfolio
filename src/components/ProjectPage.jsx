@@ -4,8 +4,9 @@ import React, { useRef } from "react";
 import TextReveal from "./TextReveal";
 import gsap, { ScrollTrigger, useGSAP } from "@/lib/gsap";
 import Link from "next/link";
+import useViewTransition from "@/hooks/useViewTransition";
 
-const ProjectPage = ({ project }) => {
+const ProjectPage = ({ project, nextProject }) => {
   const containerRef = useRef(null);
   const imageRef = useRef(null);
 
@@ -49,6 +50,12 @@ const ProjectPage = ({ project }) => {
     },
     { scope: containerRef },
   );
+
+  const { navigateTo } = useViewTransition();
+
+  const handleClick = () => {
+    navigateTo(`/project/${nextProject.slug}`);
+  };
 
   return (
     <div>
@@ -120,7 +127,15 @@ const ProjectPage = ({ project }) => {
             </section>
           );
         })}
-        <footer className="h-screen w-full"></footer>
+        <footer className="h-screen w-full flex flex-col items-center justify-center gap-4">
+          <h1 className="text-7xl">{project.title}</h1>
+          <button
+            className="px-4 py-2.5 bg-gray-700 text-white text-2xl rounded active:scale-95"
+            onClick={handleClick}
+          >
+            Next 👉
+          </button>
+        </footer>
       </main>
     </div>
   );
