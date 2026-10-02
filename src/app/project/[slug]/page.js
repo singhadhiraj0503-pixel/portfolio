@@ -1,13 +1,18 @@
 import Navbar from "@/components/Navbar";
+import ProjectPage from "@/components/ProjectPage";
+import { projects } from "@/data/projects";
 import React from "react";
 
-const page = () => {
+const page = async ({ params }) => {
+  const { slug } = await params;
+  const index = projects.findIndex((p) => p.slug === slug);
+  const project = projects[index];
+
   return (
     <div className="h-screen w-full">
-      <Navbar />
-      <div className="mt-15">
-        <h1>Project Section</h1>
-      </div>
+      {/* <Navbar /> */}
+
+      <ProjectPage project={project} />
     </div>
   );
 };

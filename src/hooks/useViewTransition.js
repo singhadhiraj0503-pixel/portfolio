@@ -147,7 +147,7 @@ const useViewTransition = () => {
         ease: "power3.inOut",
         stagger: {
           each: 0.04,
-          from: "center",
+          from: "random",
         },
 
         onComplete: () => {
@@ -163,7 +163,7 @@ const useViewTransition = () => {
               ease: "power3.inOut",
               stagger: {
                 each: 0.04,
-                from: "start",
+                from: "random",
               },
               transformOrigin: "top",
 
